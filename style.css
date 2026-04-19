@@ -267,24 +267,24 @@ body {
 
 .chant {
   position: fixed;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%) scale(0.8);
-  font-size: 28px;
+  top: 50%;
+  left: calc(50% + 180px); /* a la derecha de la carta */
+  transform: translateY(-50%) translateX(20px);
+  font-size: 22px;
   font-weight: bold;
   color: white;
-  text-align: center;
+  text-align: left;
   opacity: 0;
   pointer-events: none;
   text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
   z-index: 1000;
+  max-width: 200px;
 }
 
 .chant.show {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
-  animation: chantBounce 0.6s ease, chantShake 0.6s ease 0.6s;
+  transform: translateY(-50%) translateX(0);
 }
 
 @keyframes chantBounce {
@@ -299,4 +299,18 @@ body {
   50% { transform: translateX(-50%) translateX(5px); }
   75% { transform: translateX(-50%) translateX(-3px); }
   100% { transform: translateX(-50%) translateX(0); }
+}
+
+@media (max-width: 600px) {
+  .chant {
+    top: auto;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .chant.show {
+    transform: translateX(-50%);
+  }
 }
