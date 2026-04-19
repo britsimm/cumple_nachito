@@ -264,3 +264,39 @@ body {
 .concert-image:hover {
   transform: scale(1.05);
 }
+
+.chant {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.chant.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  animation: chantBounce 0.6s ease, chantShake 0.6s ease 0.6s;
+}
+
+@keyframes chantBounce {
+  0%   { transform: translateX(-50%) scale(0.5); }
+  60%  { transform: translateX(-50%) scale(1.2); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+@keyframes chantShake {
+  0% { transform: translateX(-50%) translateX(0); }
+  25% { transform: translateX(-50%) translateX(-5px); }
+  50% { transform: translateX(-50%) translateX(5px); }
+  75% { transform: translateX(-50%) translateX(-3px); }
+  100% { transform: translateX(-50%) translateX(0); }
+}
