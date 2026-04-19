@@ -156,11 +156,9 @@ body {
 
 .envelope.open .letter {
   position: fixed;
-  top: 50%;
+  top: 45%; /* 👈 sube la carta */
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .letter .emoji-top {
@@ -280,9 +278,11 @@ body {
   transition: all 0.5s ease;
   z-index: 1000;
   max-width: 200px;
+  display: none; 
 }
 
 .chant.show {
+  display: block;
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
@@ -309,7 +309,11 @@ body {
     transform: translateX(-50%);
     text-align: center;
   }
-
+@media (max-width: 600px) {
+  .envelope.open .letter {
+    top: 42%; /* más arriba en celular */
+  }
+}
   .chant.show {
     transform: translateX(-50%);
   }
