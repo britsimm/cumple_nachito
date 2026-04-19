@@ -10,6 +10,9 @@ function openEnvelope() {
   launchConfetti(); // opcional
   launchLogos();    // NUEVO
 });
+  setTimeout(() => {
+  chant.classList.add('show');
+}, 3500);
 }
 
 function launchConfetti() {
