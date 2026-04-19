@@ -201,6 +201,14 @@ body {
   pointer-events: none;
 }
 
+.flying-logo {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+  will-change: transform, opacity;
+  animation: flyLogo linear forwards;
+}
+
 @keyframes fall {
   0% {
     transform: translateY(-10px) translateX(0) rotate(0deg);
