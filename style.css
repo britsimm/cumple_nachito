@@ -223,6 +223,20 @@ body {
   }
 }
 
+@keyframes flyLogo {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--rotate));
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-150px) translateX(calc(var(--drift) * 0.3)) rotate(180deg);
+  }
+  100% {
+    transform: translateY(-400px) translateX(var(--drift)) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 /* ── IMAGE GALLERY ── */
 .image-gallery {
   margin-top: 20px;
