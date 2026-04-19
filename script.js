@@ -6,8 +6,12 @@ function openEnvelope() {
 
   envelope.classList.add('open');
   hint.classList.add('hidden');
-
-  setTimeout(launchConfetti, 700);
+  setTimeout(() => {
+  launchConfetti(); // opcional
+  launchLogos();    // NUEVO
+}, 1200);
+  
+  #setTimeout(launchConfetti, 700);
 }
 
 function launchConfetti() {
