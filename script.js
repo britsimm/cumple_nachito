@@ -10,8 +10,6 @@ function openEnvelope() {
   launchConfetti(); // opcional
   launchLogos();    // NUEVO
 }, 1200);
-  
-  #setTimeout(launchConfetti, 700);
 }
 
 function launchConfetti() {
