@@ -40,3 +40,40 @@ function launchConfetti() {
     }, i * 20);
   }
 }
+
+
+function launchLogos() {
+  const logos = [
+    'img/tkvgn.jpg',
+  ];
+
+  for (let i = 0; i < 25; i++) {
+    setTimeout(() => {
+      const img = document.createElement('img');
+      img.className = 'flying-logo';
+
+      const logo = logos[Math.floor(Math.random() * logos.length)];
+      img.src = logo;
+
+      const size = 30 + Math.random() * 40;
+
+      img.style.width = size + 'px';
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.top = '60vh';
+
+      // movimiento lateral
+      const drift = (Math.random() - 0.5) * 300;
+      img.style.setProperty('--drift', drift + 'px');
+
+      // rotación inicial
+      img.style.setProperty('--rotate', (Math.random() * 360) + 'deg');
+
+      // duración
+      img.style.animationDuration = (2 + Math.random() * 2) + 's';
+
+      document.body.appendChild(img);
+
+      setTimeout(() => img.remove(), 5000);
+    }, i * 80);
+  }
+}
