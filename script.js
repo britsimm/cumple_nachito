@@ -81,3 +81,9 @@ function launchLogos() {
     }, i * 60); // más espaciados
   }
 }
+
+const chant = document.querySelector('.chant');
+
+setTimeout(() => {
+  chant.classList.add('show');
+}, 300);
