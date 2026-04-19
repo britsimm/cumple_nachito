@@ -1,18 +1,26 @@
 function openEnvelope() {
   const envelope = document.querySelector('.envelope');
   const hint = document.querySelector('.hint');
+  const chant = document.querySelector('.chant');
 
+  // evitar múltiples aperturas
   if (envelope.classList.contains('open')) return;
 
+  // abrir sobre
   envelope.classList.add('open');
   hint.classList.add('hidden');
+
+  // 👇 ocultar el texto si estaba visible
+  chant.classList.remove('show');
+
+  // lanzar efectos
+  launchConfetti();
+  launchLogos();
+
+  // 👇 mostrar el texto después de que termina el confetti
   setTimeout(() => {
-  launchConfetti(); // opcional
-  launchLogos();    // NUEVO
-});
-  setTimeout(() => {
-  chant.classList.add('show');
-}, 10000);
+    chant.classList.add('show');
+  }, 7000);
 }
 
 function launchConfetti() {
