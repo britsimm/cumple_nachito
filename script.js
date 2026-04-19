@@ -12,7 +12,7 @@ function openEnvelope() {
 });
   setTimeout(() => {
   chant.classList.add('show');
-}, 3500);
+}, 10000);
 }
 
 function launchConfetti() {
