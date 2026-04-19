@@ -9,7 +9,7 @@ function openEnvelope() {
   setTimeout(() => {
   launchConfetti(); // opcional
   launchLogos();    // NUEVO
-}, 1200);
+});
 }
 
 function launchConfetti() {
@@ -49,7 +49,7 @@ function launchLogos() {
     'img/tkvgn.jpg',
   ];
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 12; i++) { // menos logos
     setTimeout(() => {
       const img = document.createElement('img');
       img.className = 'flying-logo';
@@ -57,25 +57,27 @@ function launchLogos() {
       const logo = logos[Math.floor(Math.random() * logos.length)];
       img.src = logo;
 
-      const size = 30 + Math.random() * 40;
+      const size = 60 + Math.random() * 60; // más grandes
 
       img.style.width = size + 'px';
-      img.style.left = Math.random() * 100 + 'vw';
-      img.style.top = '60vh';
 
-      // movimiento lateral
-      const drift = (Math.random() - 0.5) * 300;
+      // arrancan desde abajo
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.top = '100vh';
+
+      // movimiento lateral más suave
+      const drift = (Math.random() - 0.5) * 200;
       img.style.setProperty('--drift', drift + 'px');
 
-      // rotación inicial
+      // rotación
       img.style.setProperty('--rotate', (Math.random() * 360) + 'deg');
 
       // duración
-      img.style.animationDuration = (2 + Math.random() * 2) + 's';
+      img.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
 
       document.body.appendChild(img);
 
       setTimeout(() => img.remove(), 5000);
-    }, i * 80);
+    }, i * 60); // más espaciados
   }
 }
