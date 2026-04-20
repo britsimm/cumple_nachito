@@ -9,20 +9,27 @@ function openEnvelope() {
   envelope.classList.add('open');
   hint.classList.add('hidden');
 
-  // aseguramos que NO se vea al inicio
+  // ocultar chant
   chant.classList.remove('show');
   chant.classList.add('hidden');
 
   launchConfetti();
   launchLogos();
 
-  // 👇 esperar a que termine la animación de la carta
+  // 👇 cuando la carta termina de abrirse
   const onEnd = (e) => {
     if (e.propertyName === 'transform') {
-      setTimeout(() => {
-        chant.classList.remove('hidden');
-        chant.classList.add('show');
-      }, 200); // pequeño delay para que respire
+
+      // 👇 esperar a que el usuario haga scroll hasta el final
+      letter.addEventListener('scroll', () => {
+        const atBottom =
+          letter.scrollTop + letter.clientHeight >= letter.scrollHeight - 5;
+
+        if (atBottom) {
+          chant.classList.remove('hidden');
+          chant.classList.add('show');
+        }
+      });
 
       letter.removeEventListener('transitionend', onEnd);
     }
