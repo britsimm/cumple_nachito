@@ -9,17 +9,21 @@ function openEnvelope() {
   envelope.classList.add('open');
   hint.classList.add('hidden');
 
-  // ocultar chant al inicio
+  // aseguramos que NO se vea al inicio
   chant.classList.remove('show');
+  chant.classList.add('hidden');
 
-  // lanzar efectos
   launchConfetti();
   launchLogos();
 
-  // 👇 mostrar chant cuando la carta termina de moverse
+  // 👇 esperar a que termine la animación de la carta
   const onEnd = (e) => {
     if (e.propertyName === 'transform') {
-      chant.classList.add('show');
+      setTimeout(() => {
+        chant.classList.remove('hidden');
+        chant.classList.add('show');
+      }, 200); // pequeño delay para que respire
+
       letter.removeEventListener('transitionend', onEnd);
     }
   };
