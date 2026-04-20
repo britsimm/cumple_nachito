@@ -318,20 +318,12 @@ body {
 }
 
 @media (max-width: 600px) {
+.envelope.open .letter {
+   top: 42%;
+ }
+}
 
-  .chant {
-    top: auto;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-
-  .chant.show {
-    transform: translateX(-50%);
-  }
-
-  .envelope.open .letter {
-    top: 42%;
-  }
+.chant.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
