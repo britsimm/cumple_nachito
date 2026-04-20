@@ -2,26 +2,31 @@ function openEnvelope() {
   const envelope = document.querySelector('.envelope');
   const hint = document.querySelector('.hint');
   const chant = document.querySelector('.chant');
+  const letter = document.querySelector('.letter');
 
-  // evitar múltiples aperturas
   if (envelope.classList.contains('open')) return;
 
-  // abrir sobre
   envelope.classList.add('open');
   hint.classList.add('hidden');
 
-  // 👇 ocultar el texto si estaba visible
+  // ocultar chant al inicio
   chant.classList.remove('show');
 
   // lanzar efectos
   launchConfetti();
   launchLogos();
 
-  // 👇 mostrar el texto después de que termina el confetti
-  setTimeout(() => {
-    chant.classList.add('show');
-  }, 7000);
+  // 👇 mostrar chant cuando la carta termina de moverse
+  const onEnd = (e) => {
+    if (e.propertyName === 'transform') {
+      chant.classList.add('show');
+      letter.removeEventListener('transitionend', onEnd);
+    }
+  };
+
+  letter.addEventListener('transitionend', onEnd);
 }
+
 
 function launchConfetti() {
   const colors = ['#E4002B', '#003366', '#ffffff']; // rojo, azul, blanco
